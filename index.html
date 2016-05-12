@@ -72,7 +72,7 @@
 						<li>Tags</li>
 						
 						
-						<li>Über</li>
+						<li>A propos</li>
 						
 					</ul>
 				</div>
@@ -105,7 +105,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android-UI/" style="font-size: 20px;">Android UI</a> <a href="/tags/Espresso/" style="font-size: 10px;">Espresso</a> <a href="/tags/Java-EE/" style="font-size: 10px;">Java EE</a> <a href="/tags/swagger/" style="font-size: 20px;">swagger</a> <a href="/tags/自定义控件/" style="font-size: 10px;">自定义控件</a>
+						<a href="/tags/Android-UI/" style="font-size: 20px;">Android UI</a> <a href="/tags/Espresso/" style="font-size: 10px;">Espresso</a> <a href="/tags/Java-EE/" style="font-size: 10px;">Java EE</a> <a href="/tags/Robotium/" style="font-size: 10px;">Robotium</a> <a href="/tags/swagger/" style="font-size: 20px;">swagger</a> <a href="/tags/自定义控件/" style="font-size: 10px;">自定义控件</a>
 					</div>
 				</section>
 				
@@ -168,6 +168,92 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-Robotium-Demo" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/12/Robotium-Demo/" class="article-date">
+  	<time datetime="2016-05-12T05:22:29.000Z" itemprop="datePublished">2016-05-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/12/Robotium-Demo/">Robotium Demo</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="What-it-can-do"><a href="#What-it-can-do" class="headerlink" title="What it can do"></a>What it can do</h2><pre><code>Robotium是一款国外的Android自动化测试框架，主要针对Android平台的应用进行黑盒自动化测试，它提供了模拟各种手势操作（点击、长按、滑动等）、查找和断言机制的API，能够对各种控件进行操作。Robotium结合Android官方提供的测试框架达到对应用程序进行自动化的测试。
+</code></pre><h2 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use"></a>How to use</h2><h3 id="white-box-testing"><a href="#white-box-testing" class="headerlink" title="white box testing"></a>white box testing</h3><ol>
+<li>Download “robotium-solo.jar”</li>
+<li>Adds library</li>
+<li>Create test class in androidTest package</li>
+<li>Run your test class<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class MainActivityTest extends ActivityInstrumentationTestCase2&lt;MainActivity&gt;&#123;</span><br><span class="line">    private Solo solo;</span><br><span class="line"></span><br><span class="line">    public <span class="function"><span class="title">MainActivityTest</span></span>() &#123;</span><br><span class="line">        super(MainActivity.class);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void <span class="built_in">set</span>Up() throws Exception &#123;</span><br><span class="line">        solo = new Solo(getInstrumentation(), getActivity());</span><br><span class="line">        //Unlock the lock screen</span><br><span class="line">        solo.unlockScreen();</span><br><span class="line">        //Hides the soft keyboard</span><br><span class="line">        solo.hideSoftKeyboard();</span><br><span class="line">        solo.clearEditText((EditText)solo.getView(R.id.username));</span><br><span class="line">        solo.clearEditText((EditText)solo.getView(R.id.password));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void tearDown() throws Exception &#123;</span><br><span class="line">        solo.finishOpenedActivities();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void <span class="built_in">test</span>UsernameEmpty() throws Exception &#123;</span><br><span class="line">        solo.clickOnView(solo.getView(R.id.regist));</span><br><span class="line">        boolean actual = solo.searchText(StringUtils.EMPTY_TOAST_USERNAME);</span><br><span class="line">        assertTrue(StringUtils.USERNAME_EMPTY_TEST, actual);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="black-box-testing"><a href="#black-box-testing" class="headerlink" title="black box testing"></a><a href="http://www.51testing.com/html/47/411547-812831.html" target="_blank" rel="external">black box testing</a></h3><h2 id="What-are-pros-and-cons"><a href="#What-are-pros-and-cons" class="headerlink" title="What are pros and cons"></a>What are pros and cons</h2><h3 id="The-Good"><a href="#The-Good" class="headerlink" title="The Good:"></a>The Good:</h3><ul>
+<li>Easy to use</li>
+<li>Tests are easy to read</li>
+<li>Doesn’t require access to source code. Can test a APK</li>
+<li>Can identify elements easily (with caveat…more on this later)</li>
+<li>Can fall back on default Android framework</li>
+<li>Great support</li>
+</ul>
+<h3 id="The-Bad"><a href="#The-Bad" class="headerlink" title="The Bad:"></a>The Bad:</h3><ul>
+<li>Not all views and objects are currently supported e.g. SlidingDrawer</li>
+<li>Slower compared to unit testing</li>
+<li>Single class containing all methods, Selenium 1 style. This is going to get messy</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p><a href="http://anirudh24seven.github.io/devlog/2015/02/13/robotium-android-studio.html" target="_blank" rel="external">Robotium in Android Studio</a></p>
+<p><a href="http://robotium.googlecode.com/svn/doc/index.html" target="_blank" rel="external">Robotium API</a></p>
+<p><a href="http://robotium.com/pages/user-guide-android-studio" target="_blank" rel="external">User Guide Android Studio</a></p>
+<p><a href="http://www.51testing.com/html/26/492926-842908.html" target="_blank" rel="external">ANDROID自动化测试 robotium</a></p>
+<p><a href="https://github.com/DaiXinxuan/RobotiumDemo" target="_blank" rel="external">Demo</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Robotium/">Robotium</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Android测试框架/">Android测试框架</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-hapi-swagger-js" class="article article-type-post" itemscope itemprop="blogPost">
   
