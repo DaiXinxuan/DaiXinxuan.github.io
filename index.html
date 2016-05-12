@@ -105,7 +105,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android-UI/" style="font-size: 20px;">Android UI</a> <a href="/tags/自定义控件/" style="font-size: 10px;">自定义控件</a>
+						<a href="/tags/Android-UI/" style="font-size: 20px;">Android UI</a> <a href="/tags/Java-EE/" style="font-size: 10px;">Java EE</a> <a href="/tags/自定义控件/" style="font-size: 10px;">自定义控件</a>
 					</div>
 				</section>
 				
@@ -168,6 +168,76 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-How-to-use-Swagger-SpringMVC" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/12/How-to-use-Swagger-SpringMVC/" class="article-date">
+  	<time datetime="2016-05-12T02:33:34.000Z" itemprop="datePublished">2016-05-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/12/How-to-use-Swagger-SpringMVC/">How to use Swagger-SpringMVC</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-Swagger"><a href="#1-Swagger" class="headerlink" title="1.Swagger"></a>1.Swagger</h2><p><a href="http://swagger.io/" target="_blank" rel="external">Swagger</a></p>
+<h3 id="1-Add-maven-dependencies"><a href="#1-Add-maven-dependencies" class="headerlink" title="1.Add maven dependencies"></a>1.Add maven dependencies</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;jackson-annotations&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;2.4.4&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;2.4.4&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;jackson-core&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;2.4.4&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;2.2.2&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;2.2.2&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;io.swagger&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;swagger-annotations&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;1.5.3&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;springfox-staticdocs&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;2.2.2&lt;/version&gt;</span><br><span class="line">            &lt;scope&gt;<span class="built_in">test</span>&lt;/scope&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-Create-config-class-and-add-bean"><a href="#2-Create-config-class-and-add-bean" class="headerlink" title="2.Create config class and add bean"></a>2.Create config class and add bean</h2><p>e.g: SwaggerConfig.java<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@EnableWebMvc</span><br><span class="line">@EnableSwagger2</span><br><span class="line">@ComponentScan(basePackages = &#123;<span class="string">"pins.philips.swagger"</span>&#125;)</span><br><span class="line">public class SwaggerConfig &#123;</span><br><span class="line">    @Bean</span><br><span class="line">    public Docket <span class="function"><span class="title">customDocket</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private ApiInfo <span class="function"><span class="title">apiInfo</span></span>()</span><br><span class="line">    &#123;</span><br><span class="line">        ApiInfo apiInfo = new ApiInfo(</span><br><span class="line">                <span class="string">"Swagger Demo"</span>,</span><br><span class="line">                <span class="string">"SwaggerDemo controller description"</span>,</span><br><span class="line">                <span class="string">"1.0"</span>,</span><br><span class="line">                <span class="string">"xinxuan.dai@philips.com"</span>,</span><br><span class="line">                <span class="string">"My Apps API Licence Type"</span>,</span><br><span class="line">                <span class="string">"My Apps API License URL"</span>,<span class="string">""</span>);</span><br><span class="line">        <span class="built_in">return</span> apiInfo;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean class=<span class="string">"pins.philips.swagger.config.SwaggerConfig"</span>&gt;&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="3-Copy-dist-directory-in-swagger-ui-to-project-and-modify-index-html"><a href="#3-Copy-dist-directory-in-swagger-ui-to-project-and-modify-index-html" class="headerlink" title="3.Copy dist directory in swagger-ui to project and modify index.html"></a>3.Copy dist directory in swagger-ui to project and modify index.html</h2><p><a href="https://github.com/swagger-api/swagger-ui" target="_blank" rel="external">swagger-ui</a></p>
+<p>Change url in index.html</p>
+<p>e.g<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url = <span class="string">"/&#123;projectname&#125;/v2/api-docs"</span></span><br></pre></td></tr></table></figure></p>
+<p>Don’t forget to add static resources mapping!<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--//所有swagger目录的访问，直接访问location指定的目录--&gt;</span><br><span class="line">    &lt;mvc:resources mapping=<span class="string">"/swagger/**"</span> location=<span class="string">"/WEB-INF/swagger/"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="4-Use-annotation-in-Controller-class"><a href="#4-Use-annotation-in-Controller-class" class="headerlink" title="4.Use annotation in Controller class"></a>4.Use annotation in Controller class</h2><p>e.g<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(value = <span class="string">"/get/&#123;companyId&#125;"</span>, method = RequestMethod.GET)</span><br><span class="line">    @ApiOperation(value = <span class="string">"Get company by id"</span>, httpMethod = <span class="string">"GET"</span>, response = ReturnJson.class, notes = <span class="string">"根据公司Id获取公司信息"</span>)</span><br><span class="line">    public @ResponseBody ReturnJson getCompany(@ApiParam(value = <span class="string">"Company's Id"</span>)@PathVariable(<span class="string">"companyId"</span>) int companyId) &#123;</span><br><span class="line">        ReturnJson <span class="built_in">return</span>Json = new ReturnJson(<span class="literal">false</span>);</span><br><span class="line">        CompanyEntity companyEntity = companyService.getCompany(companyId);</span><br><span class="line">        <span class="keyword">if</span>(companyEntity != null)&#123;</span><br><span class="line">            <span class="built_in">return</span>Json.setJsonString(companyEntity);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">return</span>Json.setErrMsg(<span class="string">"id有误，未查询到数据"</span>);</span><br><span class="line">            <span class="built_in">return</span> <span class="built_in">return</span>Json;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span>Json.setStatus(<span class="literal">true</span>);</span><br><span class="line">        <span class="built_in">return</span> <span class="built_in">return</span>Json;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="5-Start-server-and-explore-index-html"><a href="#5-Start-server-and-explore-index-html" class="headerlink" title="5.Start server and explore index.html"></a>5.Start server and explore index.html</h2><p><a href="https://github.com/DaiXinxuan/Swagger-SpringMVC-Demo" target="_blank" rel="external">Demo</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-EE/">Java EE</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Java后端/">Java后端</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-ViewPager广告牌，自动滑动-手动滑动-无限轮播" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -286,67 +356,6 @@
 	<a class="article-category-link" href="/categories/Android/">Android</a>
 	</div>
 
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/11/hello-world/" class="article-date">
-  	<time datetime="2016-05-11T02:49:28.831Z" itemprop="datePublished">2016-05-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/11/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
 
       
       <div class="clearfix"></div>
