@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Google Espresso with Spoon | Town of Daze</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.Google EspressoHow to Use Espresso v2.0 with Testdroid Cloud Devices
+1.Modify build.gradle
+Add ‘testInstrumentationRunner”android.support.test.runner.AndroidJUnitRunner”‘ in defaultConfig
+Add packag">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google Espresso with Spoon">
+<meta property="og:url" content="http://yoursite.com/2016/05/12/Google-Espresso-with-Spoon/index.html">
+<meta property="og:site_name" content="Town of Daze">
+<meta property="og:description" content="1.Google EspressoHow to Use Espresso v2.0 with Testdroid Cloud Devices
+1.Modify build.gradle
+Add ‘testInstrumentationRunner”android.support.test.runner.AndroidJUnitRunner”‘ in defaultConfig
+Add packag">
+<meta property="og:updated_time" content="2016-05-12T03:16:32.098Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google Espresso with Spoon">
+<meta name="twitter:description" content="1.Google EspressoHow to Use Espresso v2.0 with Testdroid Cloud Devices
+1.Modify build.gradle
+Add ‘testInstrumentationRunner”android.support.test.runner.AndroidJUnitRunner”‘ in defaultConfig
+Add packag">
+  
+    <link rel="alternative" href="/atom.xml" title="Town of Daze" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://o6quza64p.bkt.clouddn.com/sample2.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Daze</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">新的起点</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						
+						<li>A propos</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/DaiXinxuan" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/5107942673/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android-UI/" style="font-size: 20px;">Android UI</a> <a href="/tags/Espresso/" style="font-size: 10px;">Espresso</a> <a href="/tags/Java-EE/" style="font-size: 10px;">Java EE</a> <a href="/tags/自定义控件/" style="font-size: 10px;">自定义控件</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">温柔正确的人总是难以生存，因为这世界既不温柔，也不正确</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Daze</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://o6quza64p.bkt.clouddn.com/sample2.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Daze</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">新的起点</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/DaiXinxuan" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/5107942673/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Google-Espresso-with-Spoon" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/12/Google-Espresso-with-Spoon/" class="article-date">
+  	<time datetime="2016-05-12T03:14:30.000Z" itemprop="datePublished">2016-05-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Google Espresso with Spoon
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Espresso/">Espresso</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Android测试框架/">Android测试框架</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-Google-Espresso"><a href="#1-Google-Espresso" class="headerlink" title="1.Google Espresso"></a>1.Google Espresso</h2><p><a href="http://testdroid.com/news/how-to-use-espresso-v2-0-with-testdroid-cloud-devices" target="_blank" rel="external">How to Use Espresso v2.0 with Testdroid Cloud Devices</a></p>
+<h3 id="1-Modify-build-gradle"><a href="#1-Modify-build-gradle" class="headerlink" title="1.Modify build.gradle"></a>1.Modify build.gradle</h3><ul>
+<li>Add ‘testInstrumentationRunner”android.support.test.runner.AndroidJUnitRunner”‘ in defaultConfig</li>
+<li>Add packagingOptions to avoid Liscens conflict</li>
+<li>Add dependencies about Espresso</li>
+</ul>
+<p>e.g : build.gradle<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: <span class="string">'com.android.application'</span></span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion 23</span><br><span class="line">    buildToolsVersion <span class="string">"23.0.1"</span></span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        applicationId <span class="string">"com.philips.pins.espresso.demo"</span></span><br><span class="line">        minSdkVersion 15</span><br><span class="line">        targetSdkVersion 23</span><br><span class="line">        versionCode 1</span><br><span class="line">        versionName <span class="string">"1.0"</span></span><br><span class="line">        <span class="built_in">test</span>InstrumentationRunner <span class="string">"android.support.test.runner.AndroidJUnitRunner"</span></span><br><span class="line">    &#125;</span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            minifyEnabled <span class="literal">false</span></span><br><span class="line">            proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.pro'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    packagingOptions &#123;</span><br><span class="line">        exclude <span class="string">'LICENSE.txt'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    compile fileTree(dir: <span class="string">'libs'</span>, include: [<span class="string">'*.jar'</span>])</span><br><span class="line">    <span class="built_in">test</span>Compile <span class="string">'junit:junit:4.12'</span></span><br><span class="line">    compile <span class="string">'com.android.support:appcompat-v7:23.1.1'</span></span><br><span class="line">    // Espresso 相关的引用</span><br><span class="line">    androidTestCompile(<span class="string">'com.android.support.test:runner:0.3'</span>) &#123;</span><br><span class="line">        exclude module: <span class="string">'support-annotations'</span></span><br><span class="line">    &#125;</span><br><span class="line">    androidTestCompile(<span class="string">'com.android.support.test:rules:0.3'</span>) &#123;</span><br><span class="line">        exclude module: <span class="string">'support-annotations'</span></span><br><span class="line">    &#125;</span><br><span class="line">    androidTestCompile(<span class="string">'com.android.support.test.espresso:espresso-core:2.2'</span>) &#123;</span><br><span class="line">        exclude module: <span class="string">'support-annotations'</span></span><br><span class="line">    &#125;</span><br><span class="line">    androidTestCompile(<span class="string">'com.android.support.test.espresso:espresso-intents:2.2'</span>) &#123;</span><br><span class="line">        exclude module: <span class="string">'support-annotations'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-Create-Test-Class"><a href="#2-Create-Test-Class" class="headerlink" title="2.Create Test Class"></a>2.Create Test Class</h2><ol>
+<li>Create a @Rule to express test which activity</li>
+<li>Create Annotation @Test method to test</li>
+</ol>
+<h4 id="p-s-Espresso-is-based-on-Juit-so-it’s-okay-to-override-setUp-and-tearDown"><a href="#p-s-Espresso-is-based-on-Juit-so-it’s-okay-to-override-setUp-and-tearDown" class="headerlink" title="p.s: Espresso is based on Juit, so it’s okay to override setUp() and tearDown()"></a>p.s: Espresso is based on Juit, so it’s okay to override setUp() and tearDown()</h4><p>e.g: MainActivityTest.java<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">@RunWith(AndroidJUnit4.class)</span><br><span class="line">@LargeTest</span><br><span class="line">public class MainActivityTest &#123;</span><br><span class="line">    @Rule</span><br><span class="line">    public ActivityTestRule&lt;MainActivity&gt; mActivityRule = new ActivityTestRule(MainActivity.class);</span><br><span class="line"></span><br><span class="line">    @Before</span><br><span class="line">    public void <span class="built_in">set</span>Up() throws Exception &#123;</span><br><span class="line">        Intent intent = new Intent();</span><br><span class="line">        mActivityRule.launchActivity(intent);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @After</span><br><span class="line">    public void tearDown() throws Exception &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void <span class="function"><span class="title">testTextViewDisplay</span></span>() &#123;</span><br><span class="line">        onView(withText(<span class="string">"Hello World!"</span>)).check(ViewAssertions.matches(isDisplayed()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p><a href="https://google.github.io/android-testing-support-library/docs/espresso/index.html" target="_blank" rel="external">Google Github io </a></p>
+<p><a href="http://developer.android.com/intl/zh-cn/training/testing/ui-testing/espresso-testing.html" target="_blank" rel="external">Developer Training</a></p>
+<p><a href="https://code.google.com/p/android-test-kit/wiki/Espresso" target="_blank" rel="external">Espresso</a></p>
+<h2 id="Some-blogs"><a href="#Some-blogs" class="headerlink" title="Some blogs"></a>Some blogs</h2><p><a href="http://www.eoeandroid.com/thread-917959-1-1.html?_dsign=641adb77" target="_blank" rel="external">自动化测试框架Espresso(一) 介绍和环境搭建</a></p>
+<p><a href="http://www.eoeandroid.com/thread-917976-1-2.html?_dsign=80084669" target="_blank" rel="external">自动化测试框架Espresso(二) 基本用法</a></p>
+<p><a href="http://www.eoeandroid.com/thread-917978-1-1.html?_dsign=6aab342a" target="_blank" rel="external">自动化测试框架Espresso(三) 简单实例-登录场景自动化测试</a></p>
+<p><a href="http://www.w2bc.com/Article/40324" target="_blank" rel="external">Android Espresso(UI自动化测试)的搭建</a></p>
+<p>Besides, it seems necessary to lock the screen when we use Espresso to test.</p>
+<h2 id="2-Spoon-（一款辅助测试并生成测试报告的插件）"><a href="#2-Spoon-（一款辅助测试并生成测试报告的插件）" class="headerlink" title="2.Spoon （一款辅助测试并生成测试报告的插件）"></a>2.Spoon （一款辅助测试并生成测试报告的插件）</h2><p>spoon的强大之处：</p>
+<ul>
+<li>多机并行执行：同时在多台手机中执行自动化测试用例，以便在不同版本的Android操作系统中进行回归测试、兼容性测试</li>
+<li>出错重试及出错截图：当用例执行未通过时，可以自动进行重跑并截图记录，以便减少因偶然因素导致用例执行未通过的情况</li>
+<li>实时日志记录：对于测试执行过程应该能记录运行时的日志，以便详细发解测试执行情况</li>
+<li>跨应用的能力：能够测试包含跨应用的诸多情况</li>
+<li>生成Junit形式测试报告：生成详细的Junit形式的测试报告，可方便查看测试用例执行结果</li>
+<li>代码覆盖率报告：生成代码覆盖率报告，以便进一步指导测试策略</li>
+<li>持续快速反馈的能力：对于测试运行情况，应该要能够快速反馈</li>
+<li>易于访问的报告：能够很方便地访问到测试报告详情<h3 id="How-to-use-spoon"><a href="#How-to-use-spoon" class="headerlink" title="How to use spoon"></a>How to use spoon</h3></li>
+</ul>
+<ol>
+<li>Download the latest runner JAR(This project contanins spoon-runner-1.3.2-jar-with-dependencies.jar)</li>
+<li><p>Add the latest client JAR to your dependencies or download it</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">androidTestCompile <span class="string">'com.squareup.spoon:spoon-client:1.3.2'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Run Spoon as a standalone tool with your application and instrumentation APKs.</p>
+</li>
+</ol>
+<p>cmd e.g:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">java -jar spoon-runner-1.3.2-jar-with-dependencies.jar </span><br><span class="line">--apk D:\Espresso\app\build\outputs\apk\app-debug-unaligned.apk </span><br><span class="line">--test-apk D:\Espresso\app\build\outputs\apk\app-debug-androidTest-unaligned.apk </span><br><span class="line">--sdk C:\Users\310231492\AppData\Local\Android\sdk</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>Get test report in folder spoon-output</li>
+</ol>
+<p>p.s: use Spoon.screenShot() to take screenshots, but do not forget to add the WRITE_EXTERNAL_STORAGE permission<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Spoon.screenshot(activity, <span class="string">"initial_state"</span>);</span><br><span class="line">/* Normal <span class="built_in">test</span> code... */</span><br><span class="line">Spoon.screenshot(activity, <span class="string">"after_login"</span>);</span><br></pre></td></tr></table></figure></p>
+<h4 id="References-1"><a href="#References-1" class="headerlink" title="References"></a>References</h4><p><a href="https://github.com/square/spoon" target="_blank" rel="external">Spoon Github</a></p>
+<p><a href="https://github.com/DaiXinxuan/espressowithspoon" target="_blank" rel="external">Demo</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/12/How-to-use-Swagger-SpringMVC/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">How to use Swagger-SpringMVC</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Google-Espresso-with-Spoon" data-title="Google Espresso with Spoon" data-url="http://yoursite.com/2016/05/12/Google-Espresso-with-Spoon/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Daze
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
