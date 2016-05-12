@@ -105,7 +105,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android-UI/" style="font-size: 10px;">Android UI</a> <a href="/tags/自定义控件/" style="font-size: 10px;">自定义控件</a>
+						<a href="/tags/Android-UI/" style="font-size: 20px;">Android UI</a> <a href="/tags/自定义控件/" style="font-size: 10px;">自定义控件</a>
 					</div>
 				</section>
 				
@@ -168,6 +168,75 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-ViewPager广告牌，自动滑动-手动滑动-无限轮播" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/12/ViewPager广告牌，自动滑动-手动滑动-无限轮播/" class="article-date">
+  	<time datetime="2016-05-12T01:21:11.000Z" itemprop="datePublished">2016-05-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/12/ViewPager广告牌，自动滑动-手动滑动-无限轮播/">ViewPager广告牌，自动滑动+手动滑动+无限轮播</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>大多数商业用APP都会在首页设置一个可以无限轮播的广告牌，据我了解，Android开发平台这种广告牌的实现形式有好几种，一种是第三方开源控件ViewFlow（据说实现方式最为合理，效率也最高）， 还有一种是LoopViewPager（顾名思义，这就是专门用于实现轮播的ViewPager控件0.0），还有一种就是今天写的用ViewPager实现，虽然方法有些投机取巧，但实现效果还是不错的（我也是在采用了上述两种方法踩了无数个坑之后，才决定回来用原生的ViewPager(╯‵□′)╯︵┻━┻）</p>
+<p>首先考虑如何实现状态的切换，通过监听ViewPager的OnTouch事件显然是个好方法。其中实现轮播的方法，Android的实现方法也有不少，但timer的实现方式比较占内存，最后还是决定用Handler来计时（实现方式比较巧妙，通过Handler的delay机制来实现轮播）。<br>p.s：记得在一开始就启动startAutoPlay（）方法，否则不会自动滑动哦<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">viewPager.setOnTouchListener(new View.OnTouchListener() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public boolean onTouch(View v, MotionEvent event) &#123;</span><br><span class="line">        switch (event.getAction()) &#123;</span><br><span class="line">            case MotionEvent.ACTION_DOWN:</span><br><span class="line">                stopAutoPlay();</span><br><span class="line">                break;</span><br><span class="line">            case MotionEvent.ACTION_CANCEL:</span><br><span class="line">            case MotionEvent.ACTION_UP:</span><br><span class="line">                startAutoPlay();</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">private int WHAT_AUTO_PLAY = 1000;</span><br><span class="line">private int autoPlayDuration = 5000;</span><br><span class="line">private Handler viewPagerHandler = new Handler(new Handler.Callback() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public boolean handleMessage(Message msg) &#123;</span><br><span class="line">        if (msg.what == WHAT_AUTO_PLAY) &#123;</span><br><span class="line">            if (viewPager != null) &#123;</span><br><span class="line">                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1, true);</span><br><span class="line">                viewPagerHandler.sendEmptyMessageDelayed(WHAT_AUTO_PLAY, autoPlayDuration);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">private void startAutoPlay() &#123;</span><br><span class="line">    //避免出现重复消息传递</span><br><span class="line">    stopAutoPlay();</span><br><span class="line">    viewPagerHandler.sendEmptyMessageDelayed(WHAT_AUTO_PLAY, autoPlayDuration);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void stopAutoPlay() &#123;</span><br><span class="line">    viewPagerHandler.removeMessages(WHAT_AUTO_PLAY);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来是重头戏，如何实现无限轮播呢，网上大部分博客所讲都有或大或小的问题，要不然就是一开始无法向左滑动，要不然就是头尾的滑动与默认效果不同。下面所讲的实现方式是没有上述问题的，但我还是要强调一下，这个方法的实现方式不是很正规，但这是现在比较常规的做法，希望谷歌以后能给出好的解决方案</p>
+<p>ViewPagerPictureAdapter<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public class ViewPagerPictureAdapter extends PagerAdapter &#123;</span><br><span class="line">    private ArrayList&lt;View&gt; views;</span><br><span class="line"></span><br><span class="line">    public ViewPagerPictureAdapter(ArrayList&lt;View&gt; views)&#123;</span><br><span class="line">        this.views = views;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public int getCount() &#123;</span><br><span class="line">        //不正规的地方就在这里，并没有如实返回列表数据量而是直接返回了一个非常大的数值</span><br><span class="line">        return Integer.MAX_VALUE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Object instantiateItem(ViewGroup container, int position) &#123;</span><br><span class="line">        //对ViewPager页号求模取出View列表中要显示的项</span><br><span class="line">        View view = views.get(position % views.size());</span><br><span class="line">        if (container.equals(view.getParent())) &#123;</span><br><span class="line">            container.removeView(view);</span><br><span class="line">        &#125;</span><br><span class="line">        //上面这些语句必须加上，如果不加的话，就会产生则当用户滑到第四个的时候就会触发这个异常</span><br><span class="line">        //原因是我们试图把一个有父组件的View添加到另一个组件。</span><br><span class="line">        container.addView(view);</span><br><span class="line">        return view;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void destroyItem(ViewGroup container, int position, Object object) &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean isViewFromObject(View view, Object object) &#123;</span><br><span class="line">        return view == object;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>相应的，viewpager中也要做出一些变动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">viewPager.setAdapter(new ViewPagerPictureAdapter(viewArrayList));</span><br><span class="line">//设置当前item到Integer.MAX_VALUE中间的一个值，看起来像无论是往前滑还是往后滑都是ok的</span><br><span class="line">//如果不设置，用户往左边滑动的时候已经划不动了</span><br><span class="line">int targetItemPosition = Integer.MAX_VALUE / 2 - Integer.MAX_VALUE / 2 % viewArrayList.size();</span><br><span class="line">viewPager.setCurrentItem(targetItemPosition);</span><br></pre></td></tr></table></figure></p>
+<p>好了，这就算正式完成了。现在已经完全实现了需求，不过还可以进行一下美化，Android中的ViewPager中，页与页之间切换的速度为250ms，太快了，不优雅，我们修理，不，修改它一下(￣︶￣)↗</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">public void setSliderTransformDuration(int duration) &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        Field mScroller = ViewPager.class.getDeclaredField(&quot;mScroller&quot;);</span><br><span class="line">        mScroller.setAccessible(true);</span><br><span class="line">        FixedSpeedScroller scroller = new FixedSpeedScroller(viewPager.getContext(), null, duration);</span><br><span class="line">        mScroller.set(viewPager, scroller);</span><br><span class="line">    &#125; catch (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//调整viewpager中的滑动速率(默认为250毫秒，速度太快)，增加美感</span><br><span class="line">private class FixedSpeedScroller extends Scroller&#123;</span><br><span class="line">    private int mDuration = 1000;</span><br><span class="line"></span><br><span class="line">    public FixedSpeedScroller(Context context) &#123;</span><br><span class="line">        super(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public FixedSpeedScroller(Context context, Interpolator interpolator) &#123;</span><br><span class="line">        super(context, interpolator);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void startScroll(int startX, int startY, int dx, int dy) &#123;</span><br><span class="line">        super.startScroll(startX, startY, dx, dy, mDuration);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void startScroll(int startX, int startY, int dx, int dy, int duration) &#123;</span><br><span class="line">        super.startScroll(startX, startY, dx, dy, mDuration);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public FixedSpeedScroller(Context context, Interpolator interpolator, int mDuration) &#123;</span><br><span class="line">        this(context, interpolator);</span><br><span class="line">        this.mDuration = mDuration;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后再调用一下setSliderTransformDuration()方法就行了，你会发现页与页之间的切换柔和了许多，这也正是Android6.0一来设计师们追求的效果。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-UI/">Android UI</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Android/">Android</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-Android-Checkable-ImageButton" class="article article-type-post" itemscope itemprop="blogPost">
   
