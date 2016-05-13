@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Spring MVC框架搭建 | Town of Daze</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Spring MVC现如今已成为一门新兴后端框架，因其支持Restful风格而备受开发人员喜爱。今天介绍一下如何搭建一个简单的Spring MVC工程。针对一个完整的Spring MVC后端工程，以下这两种东西都是不可或缺的。
+1：开发工具IntelliJ IDEA
+2：Maven
+p.s：IDEA自带Maven，不过还是推荐用最新版本的Maven（默认的Maven仓库在C盘）
+第一步，首先用ID">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring MVC框架搭建">
+<meta property="og:url" content="http://yoursite.com/2016/05/13/Spring-MVC框架搭建/index.html">
+<meta property="og:site_name" content="Town of Daze">
+<meta property="og:description" content="Spring MVC现如今已成为一门新兴后端框架，因其支持Restful风格而备受开发人员喜爱。今天介绍一下如何搭建一个简单的Spring MVC工程。针对一个完整的Spring MVC后端工程，以下这两种东西都是不可或缺的。
+1：开发工具IntelliJ IDEA
+2：Maven
+p.s：IDEA自带Maven，不过还是推荐用最新版本的Maven（默认的Maven仓库在C盘）
+第一步，首先用ID">
+<meta property="og:image" content="http://o6quza64p.bkt.clouddn.com/QQ%E5%9B%BE%E7%89%8720160513112753.png">
+<meta property="og:updated_time" content="2016-05-13T06:26:47.199Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring MVC框架搭建">
+<meta name="twitter:description" content="Spring MVC现如今已成为一门新兴后端框架，因其支持Restful风格而备受开发人员喜爱。今天介绍一下如何搭建一个简单的Spring MVC工程。针对一个完整的Spring MVC后端工程，以下这两种东西都是不可或缺的。
+1：开发工具IntelliJ IDEA
+2：Maven
+p.s：IDEA自带Maven，不过还是推荐用最新版本的Maven（默认的Maven仓库在C盘）
+第一步，首先用ID">
+<meta name="twitter:image" content="http://o6quza64p.bkt.clouddn.com/QQ%E5%9B%BE%E7%89%8720160513112753.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Town of Daze" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://o6quza64p.bkt.clouddn.com/sample2.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Daze</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">新的起点</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/DaiXinxuan" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/5107942673/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android-UI/" style="font-size: 20px;">Android UI</a> <a href="/tags/Espresso/" style="font-size: 10px;">Espresso</a> <a href="/tags/Java-EE/" style="font-size: 20px;">Java EE</a> <a href="/tags/Robotium/" style="font-size: 10px;">Robotium</a> <a href="/tags/Spring-MVC/" style="font-size: 10px;">Spring MVC</a> <a href="/tags/swagger/" style="font-size: 20px;">swagger</a> <a href="/tags/自定义控件/" style="font-size: 10px;">自定义控件</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">温柔正确的人总是难以生存，因为这世界既不温柔，也不正确</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Daze</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://o6quza64p.bkt.clouddn.com/sample2.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Daze</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">新的起点</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/DaiXinxuan" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/5107942673/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Spring-MVC框架搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/13/Spring-MVC框架搭建/" class="article-date">
+  	<time datetime="2016-05-13T03:17:03.000Z" itemprop="datePublished">2016-05-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Spring MVC框架搭建
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-EE/">Java EE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-MVC/">Spring MVC</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Java后端/">Java后端</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Spring MVC现如今已成为一门新兴后端框架，因其支持Restful风格而备受开发人员喜爱。今天介绍一下如何搭建一个简单的Spring MVC工程。<br>针对一个完整的Spring MVC后端工程，以下这两种东西都是不可或缺的。</p>
+<p>1：开发工具IntelliJ IDEA</p>
+<p>2：Maven</p>
+<p>p.s：IDEA自带Maven，不过还是推荐用最新版本的Maven（默认的Maven仓库在C盘）</p>
+<p>第一步，首先用IDEA创建一个Maven工程，如下图操作</p>
+<p><img src="http://o6quza64p.bkt.clouddn.com/QQ%E5%9B%BE%E7%89%8720160513112753.png" alt=""><br>为工程取好名字后，添加Web Application和Spring框架（工程处右键Add Framework Support）</p>
+<p>p.s此时公司的网出了问题，lync登不上，qq登不上，Maven也用不了，尴尬！！</p>
+<p>我们先来添加所需依赖，相信搞过Spring MVC开发的各位都很烦依赖的添加，下面我贴上来的是验证可行的并且有注释<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br></pre></td><td class="code"><pre><span class="line">    &lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;3.8.1&lt;/version&gt;</span><br><span class="line">        &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;javax.servlet&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;servlet-api&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.5&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;commons-fileupload&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;commons-fileupload&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;1.3.1&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;commons-io&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;commons-io&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.3&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;!-- jackson转换json --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.codehaus.jackson&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;jackson-mapper-asl&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;1.9.13&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Spring --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-core&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.0.3.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-context&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.0.3.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-web&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.0.3.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.0.3.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-orm&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.0.3.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-tx&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.0.3.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-test&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.0.3.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-jdbc&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.0.3.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-expression&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.0.3.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-aop&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.0.3.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- AspectJ --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.aspectj&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;aspectjrt&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;1.7.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.aspectj&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;aspectjweaver&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;1.7.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Mysql --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;5.1.29&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Hibernate4 --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.hibernate&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hibernate-core&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.3.5.Final&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;!-- for JPA, use hibernate-entitymanager instead of hibernate-core --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.hibernate&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hibernate-entitymanager&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.3.5.Final&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;!-- 以下可选 --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.hibernate&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hibernate-envers&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.3.5.Final&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.hibernate&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hibernate-c3p0&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.3.5.Final&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.hibernate&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hibernate-proxool&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.3.5.Final&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.hibernate&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hibernate-infinispan&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.3.5.Final&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.hibernate&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hibernate-ehcache&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.3.5.Final&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.hibernate.javax.persistence&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hibernate-jpa-2.1-api&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;1.0.0.Final&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.jboss&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;jandex&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;1.1.0.Final&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;!-- 为了让Hibernate使用代理模式，需要javassist --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.javassist&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;javassist&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;3.18.1-GA&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.jboss.logging&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;jboss-logging&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;3.1.3.GA&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.jboss.spec.javax.annotation&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;jboss-annotations-api_1.2_spec&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;1.0.0.Final&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;antlr&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;antlr&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.7.7&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;dom4j&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;dom4j&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;1.6.1&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;commons-collections&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;commons-collections&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;3.1&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;commons-dbcp&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;commons-dbcp&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;1.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;commons-pool&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;commons-pool&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;1.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;javax.transaction&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;jta&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;1.1&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.slf4j&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;1.6.1&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.hibernate.javax.persistence&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;hibernate-jpa-2.0-api&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;1.0.0.Final&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- tomcat7.0.35 数据库连接池 --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.tomcat&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;tomcat-dbcp&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;7.0.35&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;jackson-annotations&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.4.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.4.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;jackson-core&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.4.4&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.2.2&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.2.2&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;io.swagger&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;swagger-annotations&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;1.5.3&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;io.springfox&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;springfox-staticdocs&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.2.2&lt;/version&gt;</span><br><span class="line">        &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure></p>
+<p>添加好依赖之后就是各种配置文件了，这也是框架搭建中最容易出现问题的地方</p>
+<p>首先我们先来配置web.xml<br>先配置listener中的ContextLoaderListener这是必须的，然后再配置拦截器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span><br><span class="line">         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;</span><br><span class="line">         version=&quot;3.1&quot;&gt;</span><br><span class="line">    &lt;display-name&gt;SwaggerDemo&lt;/display-name&gt;</span><br><span class="line">    &lt;context-param&gt;</span><br><span class="line">        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">        &lt;param-value&gt;classpath:/applicationContext.xml&lt;/param-value&gt;</span><br><span class="line">    &lt;/context-param&gt;</span><br><span class="line">    &lt;listener&gt;</span><br><span class="line">        &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;</span><br><span class="line">    &lt;/listener&gt;</span><br><span class="line">    &lt;!-- 定义DispatcherServlet --&gt;</span><br><span class="line">    &lt;servlet&gt;</span><br><span class="line">        &lt;servlet-name&gt;philips-dispatcher&lt;/servlet-name&gt;</span><br><span class="line">        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;</span><br><span class="line">        &lt;init-param&gt;</span><br><span class="line">            &lt;!-- 默认/WEB-INF/[servlet名字]-servlet.xml加载上下文，  如果配置了contextConfigLocation参数，</span><br><span class="line">                将使用配置的文件加载上下文</span><br><span class="line">            --&gt;</span><br><span class="line">            &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">            &lt;param-value&gt;classpath:/spring-servlet.xml&lt;/param-value&gt;</span><br><span class="line">        &lt;/init-param&gt;</span><br><span class="line">        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</span><br><span class="line">    &lt;/servlet&gt;</span><br><span class="line">    &lt;!-- 拦截匹配的请求，这里所有请求采用名字为dxx-dispatcher的DispatcherServlet处理 --&gt;</span><br><span class="line">    &lt;servlet-mapping&gt;</span><br><span class="line">        &lt;servlet-name&gt;philips-dispatcher&lt;/servlet-name&gt;</span><br><span class="line">        &lt;url-pattern&gt;/&lt;/url-pattern&gt;</span><br><span class="line">    &lt;/servlet-mapping&gt;</span><br><span class="line"></span><br><span class="line">    &lt;filter&gt;</span><br><span class="line">        &lt;filter-name&gt;springUtf8Encoding&lt;/filter-name&gt;</span><br><span class="line">        &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;</span><br><span class="line">        &lt;init-param&gt;</span><br><span class="line">            &lt;param-name&gt;encoding&lt;/param-name&gt;</span><br><span class="line">            &lt;param-value&gt;UTF-8&lt;/param-value&gt;</span><br><span class="line">        &lt;/init-param&gt;</span><br><span class="line">        &lt;init-param&gt;</span><br><span class="line">            &lt;param-name&gt;forceEncoding&lt;/param-name&gt;</span><br><span class="line">            &lt;param-value&gt;true&lt;/param-value&gt;</span><br><span class="line">        &lt;/init-param&gt;</span><br><span class="line">    &lt;/filter&gt;</span><br><span class="line">    &lt;filter-mapping&gt;</span><br><span class="line">        &lt;filter-name&gt;springUtf8Encoding&lt;/filter-name&gt;</span><br><span class="line">        &lt;url-pattern&gt;/*&lt;/url-pattern&gt;</span><br><span class="line">    &lt;/filter-mapping&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 将url请求会话和hibernate会话绑定在一起,使得spring对hibernate可以进行事务管理 --&gt;</span><br><span class="line">    &lt;filter&gt;</span><br><span class="line">        &lt;filter-name&gt;openSession&lt;/filter-name&gt;</span><br><span class="line">        &lt;filter-class&gt;org.springframework.orm.hibernate4.support.OpenSessionInViewFilter&lt;/filter-class&gt;</span><br><span class="line">        &lt;init-param&gt;</span><br><span class="line">            &lt;param-name&gt;singleSession&lt;/param-name&gt;</span><br><span class="line">            &lt;param-value&gt;true&lt;/param-value&gt;</span><br><span class="line">        &lt;/init-param&gt;</span><br><span class="line">    &lt;/filter&gt;</span><br><span class="line">    &lt;filter-mapping&gt;</span><br><span class="line">        &lt;filter-name&gt;openSession&lt;/filter-name&gt;</span><br><span class="line">        &lt;url-pattern&gt;/*&lt;/url-pattern&gt;</span><br><span class="line">    &lt;/filter-mapping&gt;</span><br><span class="line"></span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure></p>
+<p>可以看到在web.xml文件中，出现了另外两个配置文件applicationContext.xml和spring-servlet.xml，其中可以看到路径均为classpath:/，这个路径在IDEA中指src/main/resources/目录</p>
+<p>其中applicationContext.xml是ContextLoaderListener的配置文件，也是最重要的配置文件，主要负责数据库和事物的配置，直接上代码</p>
+<p>applicationContext.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;</span><br><span class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">       xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot; xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;</span><br><span class="line">       xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;</span><br><span class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</span><br><span class="line">        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd</span><br><span class="line">        http://www.springframework.org/schema/context</span><br><span class="line">        http://www.springframework.org/schema/context/spring-context.xsd</span><br><span class="line">        http://www.springframework.org/schema/tx</span><br><span class="line">        http://www.springframework.org/schema/tx/spring-tx-3.0.xsd</span><br><span class="line">        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd&quot;&gt;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		&lt;!-- 导入外部的properties文件 --&gt;</span><br><span class="line">    	&lt;context:property-placeholder location=&quot;classpath:/db.properties&quot;/&gt;</span><br><span class="line">		&lt;!-- 1.配置datasource --&gt;</span><br><span class="line">		&lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt;</span><br><span class="line">	        &lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:mysql://localhost:3306/strongtest?useUnicode=true&amp;amp;characterEncoding=utf8&quot;/&gt;</span><br><span class="line">	        &lt;property name=&quot;driverClass&quot; value=&quot;$&#123;driverClass&#125;&quot;/&gt;</span><br><span class="line">	        &lt;property name=&quot;user&quot; value=&quot;$&#123;dbuser&#125;&quot;/&gt;</span><br><span class="line">	        &lt;property name=&quot;password&quot; value=&quot;$&#123;password&#125;&quot;/&gt;</span><br><span class="line">	        &lt;property name=&quot;initialPoolSize&quot; value=&quot;$&#123;initialPoolSize&#125;&quot;/&gt;</span><br><span class="line">	        &lt;property name=&quot;minPoolSize&quot; value=&quot;$&#123;minPoolSize&#125;&quot;/&gt;</span><br><span class="line">	        &lt;property name=&quot;maxPoolSize&quot; value=&quot;$&#123;maxPoolSize&#125;&quot;/&gt;</span><br><span class="line">	        &lt;property name=&quot;acquireIncrement&quot; value=&quot;$&#123;acquireIncrement&#125;&quot;/&gt;</span><br><span class="line">	        &lt;property name=&quot;maxStatements&quot; value=&quot;$&#123;maxStatements&#125;&quot;/&gt;</span><br><span class="line">	        &lt;property name=&quot;maxStatementsPerConnection&quot; value=&quot;$&#123;maxStatementsPerConnection&#125;&quot;/&gt;</span><br><span class="line">	        &lt;property name=&quot;maxIdleTime&quot; value=&quot;$&#123;maxIdleTime&#125;&quot;/&gt;</span><br><span class="line">        &lt;/bean&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;!-- 配置sessionfactory --&gt;</span><br><span class="line">        &lt;bean id=&quot;sessionFactory&quot; class=&quot;org.springframework.orm.hibernate4.LocalSessionFactoryBean&quot;&gt;</span><br><span class="line">	        &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;&gt;&lt;/property&gt;</span><br><span class="line">	        </span><br><span class="line">	        &lt;property name=&quot;hibernateProperties&quot;&gt;</span><br><span class="line">	            &lt;props&gt;</span><br><span class="line">	                &lt;prop key=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQLDialect&lt;/prop&gt;</span><br><span class="line">	                &lt;prop key=&quot;hibernate.show_sql&quot;&gt;true&lt;/prop&gt;</span><br><span class="line">	                &lt;prop key=&quot;hibernate.format_sql&quot;&gt;true&lt;/prop&gt;</span><br><span class="line">	                &lt;prop key=&quot;hibernate.hbm2ddl.auto&quot;&gt;update&lt;/prop&gt;</span><br><span class="line">					&lt;prop key=&quot;hibernate.connection.url&quot;&gt;jdbc:mysql://localhost:3306/strongtest&lt;/prop&gt;</span><br><span class="line">					&lt;prop key=&quot;hibernate.connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;/prop&gt;</span><br><span class="line">				&lt;/props&gt;</span><br><span class="line">	        &lt;/property&gt;</span><br><span class="line">			&lt;property name=&quot;mappingLocations&quot;&gt;</span><br><span class="line">				&lt;list&gt;</span><br><span class="line">					&lt;value&gt;classpath:pins/philips/swagger/entity/*.hbm.xml&lt;/value&gt;</span><br><span class="line">				&lt;/list&gt;</span><br><span class="line">			&lt;/property&gt;</span><br><span class="line">    	&lt;/bean&gt;</span><br><span class="line">		</span><br><span class="line">		&lt;!-- 3.配置声明式事务管理 --&gt;</span><br><span class="line">	    &lt;bean id=&quot;txManager&quot; class=&quot;org.springframework.orm.hibernate4.HibernateTransactionManager&quot;&gt;</span><br><span class="line">	        &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;/&gt;</span><br><span class="line">	    &lt;/bean&gt;</span><br><span class="line">	    </span><br><span class="line">	    &lt;!-- 4.配置方法的隔离级别 --&gt;</span><br><span class="line">	    &lt;tx:advice id=&quot;txAdvice&quot; transaction-manager=&quot;txManager&quot;&gt;</span><br><span class="line">	        &lt;tx:attributes&gt;</span><br><span class="line">	            &lt;tx:method name=&quot;get*&quot; read-only=&quot;true&quot;/&gt;</span><br><span class="line">	            &lt;tx:method name=&quot;save*&quot; propagation=&quot;REQUIRED&quot; read-only=&quot;false&quot;/&gt;</span><br><span class="line">	            &lt;tx:method name=&quot;relate*&quot; propagation=&quot;REQUIRED&quot; read-only=&quot;false&quot;/&gt;</span><br><span class="line">	            &lt;tx:method name=&quot;delete*&quot; propagation=&quot;REQUIRED&quot; read-only=&quot;false&quot;/&gt;</span><br><span class="line">	            &lt;tx:method name=&quot;generate*&quot; propagation=&quot;REQUIRED&quot; read-only=&quot;false&quot;/&gt;</span><br><span class="line">	            &lt;tx:method name=&quot;change*&quot; propagation=&quot;REQUIRED&quot; read-only=&quot;false&quot;/&gt;</span><br><span class="line">	            &lt;tx:method name=&quot;set*&quot; propagation=&quot;REQUIRED&quot; read-only=&quot;false&quot;/&gt;</span><br><span class="line">	        &lt;/tx:attributes&gt;</span><br><span class="line">	    &lt;/tx:advice&gt;</span><br><span class="line"></span><br><span class="line">		&lt;!-- 5.配置事务切点 --&gt;</span><br><span class="line">	    &lt;aop:config&gt;</span><br><span class="line">	        &lt;aop:pointcut id=&quot;txPoint&quot; expression=&quot;execution(* pins.philips.swagger.service.*.*(..))&quot;/&gt;</span><br><span class="line">	        &lt;aop:advisor advice-ref=&quot;txAdvice&quot; pointcut-ref=&quot;txPoint&quot;/&gt;</span><br><span class="line">	    &lt;/aop:config&gt;</span><br><span class="line"></span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure></p>
+<p>p.s 注意细节问题，像配置事务切点的包名和映射文件的路径都要写对</p>
+<p>其中关于数据库的配置，我用的是MySql数据库，不同的数据库应用的连接类也是不同的，上面的db.properties文件定义了数据库连接的具体配置<br>db.properties<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">jdbcUrl = jdbc:mysql://localhost:3306/strongtest?useUnicode=true&amp;characterEncoding=utf8</span><br><span class="line">driverClass = com.mysql.jdbc.Driver</span><br><span class="line">dbuser = root</span><br><span class="line">password = 123456</span><br><span class="line">initialPoolSize=3</span><br><span class="line">minPoolSize=3</span><br><span class="line">maxPoolSize=5</span><br><span class="line">acquireIncrement=3</span><br><span class="line">maxStatements=8</span><br><span class="line">maxStatementsPerConnection=5</span><br><span class="line">maxIdleTime=1800</span><br></pre></td></tr></table></figure></p>
+<p>最后一个配置文件就是spring-servlet.xml文件，这里面主要包含对Bean的扫描以及静态资源的对应路径，如下所示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;</span><br><span class="line">       xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;</span><br><span class="line">       xmlns:p=&quot;http://www.springframework.org/schema/p&quot;</span><br><span class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">       xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;</span><br><span class="line">       xsi:schemaLocation=&quot;</span><br><span class="line">        http://www.springframework.org/schema/beans</span><br><span class="line">        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd</span><br><span class="line">        http://www.springframework.org/schema/context</span><br><span class="line">        http://www.springframework.org/schema/context/spring-context-3.0.xsd</span><br><span class="line">        http://www.springframework.org/schema/mvc</span><br><span class="line">        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd</span><br><span class="line">        http://www.springframework.org/schema/tx</span><br><span class="line">        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd</span><br><span class="line">        &quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;context:annotation-config/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 启动自动扫描该包下所有的Bean(例如@Controller) --&gt;</span><br><span class="line">    &lt;context:component-scan base-package=&quot;pins.philips.swagger&quot;&gt;</span><br><span class="line">        &lt;context:include-filter type=&quot;annotation&quot; expression=&quot;org.springframework.stereotype.Controller&quot;/&gt;</span><br><span class="line">    &lt;/context:component-scan&gt;</span><br><span class="line">    &lt;mvc:annotation-driven /&gt;</span><br><span class="line"></span><br><span class="line">     &lt;!--定义视图解析器 --&gt;</span><br><span class="line">    &lt;!--&lt;bean class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;--&gt;</span><br><span class="line">        &lt;!--&lt;property name=&quot;prefix&quot;&gt;--&gt;</span><br><span class="line">            &lt;!--&lt;value&gt;/WEB-INF/user/&lt;/value&gt;--&gt;</span><br><span class="line">        &lt;!--&lt;/property&gt;--&gt;</span><br><span class="line">        &lt;!--&lt;property name=&quot;suffix&quot;&gt;--&gt;</span><br><span class="line">            &lt;!--&lt;value&gt;.jsp&lt;/value&gt;--&gt;</span><br><span class="line">        &lt;!--&lt;/property&gt;--&gt;</span><br><span class="line">    &lt;!--&lt;/bean&gt;--&gt;</span><br><span class="line"></span><br><span class="line">    &lt;bean id=&quot;multipartResolver&quot; class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;maxUploadSize&quot; value=&quot;10485760&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;defaultEncoding&quot; value=&quot;UTF-8&quot;/&gt;</span><br><span class="line">        &lt;property name=&quot;resolveLazily&quot; value=&quot;true&quot;/&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure></p>
+<p>如果没有意外，现在服务器应该已经可以跑起来了，接下来讲一下Spring MVC的工作流程。<br>Spring MVC中往往分为Controller（具体接口，处理相应逻辑），dao（数据库工具类），entity（实体类，对应数据库中的表），service（服务类，调用数据库工具类进行操作），其中Service和Dao部分通常通过接口和继承接口的实体类实现，其中ServiceImpl类和DaoImpl类记得分别使用@Service和@Repository标注，实体部分通常由实体类和映射文件组成*.hbm.xml组成。<br>好累，下次再讲具体代码的部分吧</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/12/Robotium-Demo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Robotium Demo</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Spring-MVC框架搭建" data-title="Spring MVC框架搭建" data-url="http://yoursite.com/2016/05/13/Spring-MVC框架搭建/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Daze
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
